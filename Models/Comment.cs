@@ -9,7 +9,7 @@ public partial class Comment
 
     public string? Title { get; set; }
 
-    public string Comment1 { get; set; } = null!;
+    public string CommentContent { get; set; } = null!;
 
     public int PostId { get; set; }
 
