@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using OpenMindsForum.Models;
+
 namespace OpenMindsForum
 {
     public class Program
@@ -8,6 +11,8 @@ namespace OpenMindsForum
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<OpenMindsForumContext>(options => 
+            options.UseSqlServer(builder.Configuration.GetConnectionString("dbconn")));
 
             var app = builder.Build();
 
@@ -28,7 +33,7 @@ namespace OpenMindsForum
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Posts}/{action=Index}/{id?}");
 
             app.Run();
         }
