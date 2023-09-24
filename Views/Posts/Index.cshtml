@@ -16,16 +16,10 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PostContent)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.PostStamp)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Subject)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Thread)
             </th>
             <th></th>
         </tr>
@@ -34,24 +28,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostContent)
+                <a asp-action="Details" asp-route-id="@item.PostId">@Html.DisplayFor(modelItem => item.Title)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PostStamp)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Subject.SubjectId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Thread.ThreadId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                @Html.DisplayFor(modelItem => item.Subject.Name) @*lägg till länk som tar till alla posts för kategorin*@
             </td>
         </tr>
 }
