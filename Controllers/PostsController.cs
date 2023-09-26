@@ -19,10 +19,15 @@ namespace OpenMindsForum.Controllers
             _context = context;
         }
 
-        // GET: Posts
-        public async Task<IActionResult> Index()
+        // GET: Posts/5
+        public async Task<IActionResult> Index(int? id)
         {
-            var openMindsForumContext = _context.Posts.Include(p => p.Subject);
+            var openMindsForumContext = _context.Posts.Where(s => s.SubjectId == id).Include(p => p.Subject);
+            
+            if (id==0)
+            {
+                openMindsForumContext = _context.Posts.Include(p => p.Subject);
+            }
             return View(await openMindsForumContext.ToListAsync());
         }
 

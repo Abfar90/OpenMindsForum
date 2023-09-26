@@ -39,30 +39,31 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                Home
-                                <span class="visually-hidden">(current)</span>
-                            </a>
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" 
                             aria-haspopup="true" aria-expanded="false">Categories</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="1">Tech</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="2">Culture</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="3">Philosophy</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="4">Finance</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="5">Politics</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="6">Spirituality</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="7">Training</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="8">Sports</a>
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="9">Food</a>
+                                <div class="dropdown-divider"></div> 
+                                <a class="dropdown-item" asp-controller="Posts" asp-action="Index" asp-route-id="0">See all posts</a>
                             </div>
+                           
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="Create">Create</a>
+                            <a class="nav-link" asp-area="" asp-controller="Posts" asp-action="Create">Create</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
                         
                     </ul>

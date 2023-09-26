@@ -3,8 +3,10 @@ using System.ComponentModel;
 
 namespace OpenMindsForum.ViewModels
 {
-    public class SubjectCommentViewModel
+    public class ThreadViewModel
     {
+        public int subjectId { get; set; }
+
         [DisplayName("Title")]
         public string title { get; set; }
 
