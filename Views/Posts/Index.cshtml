@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OpenMindsForum.Models.Post>
+﻿@model IEnumerable<OpenMindsForum.ViewModels.ListPostViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,33 +10,40 @@
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostStamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Subject)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.PostId">@Html.DisplayFor(modelItem => item.Title)</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostStamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject.Name) @*lägg till länk som tar till alla posts för kategorin*@
-            </td>
-        </tr>
-}
-    </tbody>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.stamp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.comments)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) 
+
+            {
+                <tr>
+                    <td>
+                            <a asp-controller="Posts" asp-action="Details" asp-route-id="@item.postID">@Html.DisplayFor(modelItem => item.title)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.stamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.subject) @*lägg till länk som tar till alla posts för kategorin*@
+                    </td>
+                        <td align="center">
+                            <span class="badge bg-primary rounded-pill">@Html.DisplayFor(modelItem => item.comments)</span>
+                        </td>
+                </tr>
+            }
+        </tbody>
 </table>

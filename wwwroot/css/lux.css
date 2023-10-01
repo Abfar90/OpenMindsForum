@@ -13562,3 +13562,11 @@ th {
 .card .h6 {
     color: inherit;
 }
+
+.navbar-logo {
+    position: relative;
+    background: url(https://ibb.co/0mMHp69);
+    width: 170px;
+    left: 15px;
+    background-size: contain;
+}
