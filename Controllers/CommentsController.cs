@@ -33,7 +33,7 @@ namespace OpenMindsForum.Controllers
             return View();
         }
 
-        // POST: CommentsController/Create
+        [Route("Details")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateCommentViewModel createComment, int id)
@@ -49,9 +49,9 @@ namespace OpenMindsForum.Controllers
                 };
                 _context.Add(newComment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Posts", id);
+                return RedirectToAction("Details", "Posts", new { id = id });
             }
-            return RedirectToAction("Details","Posts", id);
+            return NotFound();
         }
 
         // GET: CommentsController/Edit/5

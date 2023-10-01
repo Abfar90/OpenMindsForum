@@ -30,7 +30,7 @@ namespace OpenMindsForum.Controllers
             var model = new List<ListPostViewModel>();
             var postlist = _context.Posts.Where(s => s.SubjectId == id).Include(p => p.Subject).Include(y => y.Comments);
             
-            if (id==0)
+            if (id==0 || id==null)
             {
                 postlist = _context.Posts.Include(p => p.Subject).Include(y => y.Comments);
             }
@@ -52,7 +52,7 @@ namespace OpenMindsForum.Controllers
             return View(model);
         }
 
-        // GET: Posts/Details/5
+        [Route("Details")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Posts == null)

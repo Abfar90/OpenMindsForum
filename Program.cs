@@ -34,6 +34,9 @@ namespace OpenMindsForum
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}");
+            app.MapControllerRoute(
+                name: "Details",
+                pattern: "{controller=Posts}/{action=Details}/{id?}");
 
             app.Run();
         }
