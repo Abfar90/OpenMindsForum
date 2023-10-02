@@ -3,10 +3,8 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>Post</h4>
+<br />
+<h3>Create a post</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,7 +17,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="subjectID" class="control-label"></label>
-                <select asp-for="subjectID" class="form-control" asp-items="Model.subjectList"></select>
+                <select asp-for="subjectID" class="form-select" asp-items="Model.subjectList"></select>
+                <span asp-validation-for="subjectID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="content" class="control-label"></label>

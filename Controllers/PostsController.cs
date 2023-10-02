@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OpenMindsForum.Models;
@@ -20,12 +16,8 @@ namespace OpenMindsForum.Controllers
         }
 
         // GET: Posts/5
-        public /*async Task*/ IActionResult Index(int? id)
+        public IActionResult Index(int? id)
         {
-            //if(ModelState.IsValid)
-            //{ 
-
-            //}
 
             var model = new List<ListPostViewModel>();
             var postlist = _context.Posts.Where(s => s.SubjectId == id).Include(p => p.Subject).Include(y => y.Comments);
@@ -86,6 +78,8 @@ namespace OpenMindsForum.Controllers
         public IActionResult Create()
         {
             var model = new CreatePostViewModel();
+            SelectListItem firstBlank = new SelectListItem();
+            model.subjectList.Insert(0, firstBlank);
             var subjects = _context.Subjects;
 
             foreach (var item in subjects)
@@ -115,7 +109,7 @@ namespace OpenMindsForum.Controllers
                 };
                 _context.Add(postModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Posts", new { id = postModel.PostId });
             }
             return View(postViewModel);
         }

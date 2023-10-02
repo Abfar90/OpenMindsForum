@@ -15,17 +15,6 @@ namespace OpenMindsForum.Controllers
         {
             _context = context;
         }
-        // GET: CommentsController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: CommentsController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: CommentsController/Create
         public ActionResult Create()
@@ -52,48 +41,6 @@ namespace OpenMindsForum.Controllers
                 return RedirectToAction("Details", "Posts", new { id = id });
             }
             return NotFound();
-        }
-
-        // GET: CommentsController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: CommentsController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: CommentsController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CommentsController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

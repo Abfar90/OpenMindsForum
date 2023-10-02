@@ -11,15 +11,31 @@
     
 </div>
 
-<div class="border-secondary">
+<div>
     <hr />
-    <p class="lead">@Html.DisplayFor(model => model.content)</p>
+    <p>@Html.DisplayFor(model => model.content)</p>
+    <hr />
 </div>
+<br />
+<div class="list-group">
+    <h5>Comments</h5>
+    @foreach (var item in Model.comments)
+    {
+        <a class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">@item.Title</h5>
+                <small>@item.CommentStamp</small>
+            </div>
+            <p class="mb-1">@item.CommentContent</p>
+        </a>
 
+    }
+</div>
+<hr />
 <form asp-controller="Comments" asp-action="Create" method="post" asp-route-id="@Model.postID">
-    <div class="card border-secondary mb-3" style="max-width: 25rem;">
+    <div class="card border-secondary mb-3" style="max-width: 50rem;">
         <div class="card-header">
-            <h4 class="card-title">Comment</h4>
+            <h5 class="card-title">Create a comment</h5>
         </div>
         <div class="form-group">
             <label asp-for="@Model.createComment.title" class="control-label"></label>
@@ -38,38 +54,6 @@
 </form>
 
 
-
-<div class="list-group">
-    
-    @foreach (var item in Model.comments)
-    {
-        <a class="list-group-item list-group-item-action flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">@item.Title</h5>
-                <small>@item.CommentStamp</small>
-            </div>
-            <p class="mb-1">@item.CommentContent</p>
-        </a>
-
-    } 
-    
-    @*
-    
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-muted">3 days ago</small>
-        </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small class="text-muted">Donec id elit non mi porta.</small>
-    </a>*@
-</div>
-
-
-<div>
-    @*<a asp-action="Edit" asp-route-id="@Model?.PostId">Edit</a> |
-    <a asp-action="Index">Back to List</a>*@
-</div>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

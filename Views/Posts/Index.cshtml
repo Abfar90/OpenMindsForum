@@ -3,16 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<br />
+<h3>All posts</h3>
+<hr />
+<div class="text-center">
 <table class="table">
         <thead>
             <tr>
-                <th>
+                <th style="text-align: left">
                     @Html.DisplayNameFor(model => model.title)
                 </th>
                 <th>
@@ -31,7 +29,7 @@
 
             {
                 <tr>
-                    <td>
+                    <td style="text-align: left">
                             <a asp-controller="Posts" asp-action="Details" asp-route-id="@item.postID">@Html.DisplayFor(modelItem => item.title)</a>
                     </td>
                     <td>
@@ -40,10 +38,18 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.subject) @*lägg till länk som tar till alla posts för kategorin*@
                     </td>
-                        <td align="center">
+                        <td>
                             <span class="badge bg-primary rounded-pill">@Html.DisplayFor(modelItem => item.comments)</span>
                         </td>
                 </tr>
             }
         </tbody>
 </table>
+</div>
+<hr />
+<br />
+<a asp-action="Create"><button type="button" class="btn btn-outline-primary">Create New</button></a>
+    
+
+    
+ 
