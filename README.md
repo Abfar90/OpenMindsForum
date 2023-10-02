@@ -1,6 +1,7 @@
 # OpenMindsForum
 
 In this project, we were tasked with creating an anonymous forum using ASP.NET with the MVC pattern. The data was stored in a database (MSSQL studio 18) using Entity Framework.
+I used an open source bootstrap template for the design (https://bootswatch.com/lux/).
 
 ## Requirements:
 
