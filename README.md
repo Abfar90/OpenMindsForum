@@ -17,7 +17,7 @@ In this project, we were tasked with creating an anonymous forum using ASP.NET w
 * The adherence to sound code design principles, such as following the MVC pattern and applying separation of concerns.
 
 ## Database Design:
-![Anonyma forumet](https://github.com/Abfar90/OpenMindsForum/assets/71592350/82bd0fd8-7b42-4460-87a1-da04635ee19c)
+![Anonyma forumet](https://github.com/Abfar90/OpenMindsForum/assets/71592350/d6c7f7d4-bfa1-4abe-912b-829545a099d1)
 
 ## How to run:
 There is a bak file in the db export folder that can be used to recreate the DB including the data.
